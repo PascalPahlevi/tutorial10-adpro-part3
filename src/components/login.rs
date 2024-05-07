@@ -27,13 +27,18 @@ pub fn login() -> Html {
     };
 
     html! {
-       <div class="bg-gray-800 flex w-screen">
-            <div class="container mx-auto flex flex-col justify-center items-center">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username" />
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
-                </form>
-            </div>
+        <div class="bg-gradient-to-br from-blue-600 via-blue-400 to-blue-200 flex w-screen h-screen items-center justify-center">
+          <div class="max-w-md w-full mx-auto p-8 bg-white rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            <form class="flex flex-col items-center">
+              <h2 class="text-3xl font-bold mb-4 text-gray-800">{"Login to Chat"}</h2>
+              <input {oninput} class="rounded-lg p-4 border border-gray-300 bg-gray-100 mb-4 w-full" placeholder="Username" />
+              <Link<Route> to={Route::Chat}>
+                <button {onclick} disabled={username.len() < 1} class="px-8 py-2 bg-blue-500 text-white font-bold rounded-lg shadow-md transition duration-300 transform hover:scale-105">
+                  {"Go Chatting!"}
+                </button>
+              </Link<Route>>
+            </form>
+          </div>
         </div>
-    }
+      }     
 }
